@@ -6,6 +6,22 @@
 <body>
     <h1>{{ story.title }}</h1>
     <p>{{ story.content }}</p>
+
+    <button class="text-to-speech-button">Read out loud</button>
+
+    <script>
+        const storyContent = "{{ story.content|escapejs }}";
+
+        const button = document.querySelector('.text-to-speech-button');
+        button.addEventListener('click', () => {
+            speakText(storyContent);
+        });
+
+        function speakText(text) {
+            const speech = new SpeechSynthesisUtterance(text);
+            speechSynthesis.speak(speech);
+        }
+    </script>
 </body>
 </html>
 

@@ -1,13 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ story.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-size: 28px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        .text-to-speech-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .text-to-speech-button:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
 <body>
-    <h1>{{ story.title }}</h1>
-    <p>{{ story.content }}</p>
-
-    <button class="text-to-speech-button">Read out loud</button>
+    <header>
+        <h1>{{ story.title }}</h1>
+    </header>
+    <div class="container">
+        <p>{{ story.content }}</p>
+        <button class="text-to-speech-button">Read out loud</button>
+    </div>
 
     <script>
         const storyContent = "{{ story.content|escapejs }}";
@@ -24,5 +77,4 @@
     </script>
 </body>
 </html>
-
 
